@@ -11,6 +11,7 @@ var require_keyMapping = __commonJS({
       borderRadius: "br",
       color: "c",
       fileId: "fId",
+      fontWeight: "fw",
       icon: "i",
       placeholder: "ph",
       sitemapPageId: "spId",
@@ -28,6 +29,20 @@ var require_color = __commonJS({
     var mapping = {
       primary: 0,
       surfaceVariant: 1
+    };
+    module2.exports = mapping;
+    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
+  }
+});
+
+// const/valueMapping/fontWeight.js
+var require_fontWeight = __commonJS({
+  "const/valueMapping/fontWeight.js"(exports2, module2) {
+    var mapping = {
+      500: 5,
+      600: 6,
+      700: 7,
+      800: 8
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
@@ -65,6 +80,7 @@ var require_valueMapping = __commonJS({
   "const/valueMapping/index.js"(exports2, module2) {
     var mapping = {
       color: require_color(),
+      fontWeight: require_fontWeight(),
       icon: require_icon(),
       size: require_size()
     };
@@ -78,7 +94,7 @@ var require_defaultValues = __commonJS({
   "const/defaultValues.js"(exports2, module2) {
     module2.exports = {
       button: { backgroundColor: "black", borderRadius: 0 },
-      text: { size: "m" },
+      text: { size: "m", fontWeight: 500 },
       image: { opacity: 1 },
       input: { placeholder: "Search" }
     };
@@ -108,6 +124,7 @@ var require_compress = __commonJS({
           throw new Error(`Unknown ${_key} ${_value}`);
         }
         settings[_key] = value;
+        console.warn(_key);
         if (_key === "title") {
           value = value.replace(/[\n]+$/, "");
         }

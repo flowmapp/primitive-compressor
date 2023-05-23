@@ -3,6 +3,7 @@ const mapping = {
   borderRadius: 'br',
   color: 'c',
   fileId: 'fId',
+  fontWeight: 'fw',
   icon: 'i',
   placeholder: 'ph',
   sitemapPageId: 'spId',

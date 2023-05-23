@@ -1,8 +1,7 @@
 const mapping = {
-  color: require('./color'),
-  fontWeight: require('./fontWeight'),
-  icon: require('./icon'),
-  size: require('./size'),
+  500: 5,
+  600: 6,
+  700: 7,
 }
 
 module.exports = mapping

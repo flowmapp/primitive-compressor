@@ -10,12 +10,14 @@ var require_keyMapping = __commonJS({
       backgroundColor: "bc",
       borderRadius: "br",
       color: "c",
+      desktopPosition: "dp",
       fileId: "fId",
       fontWeight: "fw",
       icon: "i",
       placeholder: "ph",
       sitemapPageId: "spId",
       size: "s",
+      state: "st",
       title: "t"
     };
     module2.exports = mapping;
@@ -93,8 +95,8 @@ var require_valueMapping = __commonJS({
 var require_defaultValues = __commonJS({
   "const/defaultValues.js"(exports2, module2) {
     module2.exports = {
-      button: { backgroundColor: "black", borderRadius: 0 },
-      text: { size: "m", fontWeight: 500 },
+      button: { backgroundColor: "black", borderRadius: 0, state: "normal", icon: null },
+      text: { size: "m", fontWeight: 500, color: "#000" },
       image: { opacity: 1 },
       input: { placeholder: "Search" }
     };
@@ -124,7 +126,6 @@ var require_compress = __commonJS({
           throw new Error(`Unknown ${_key} ${_value}`);
         }
         settings[_key] = value;
-        console.warn(_key);
         if (_key === "title") {
           value = value.replace(/[\n]+$/, "");
         }

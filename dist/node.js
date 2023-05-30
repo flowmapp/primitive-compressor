@@ -10,7 +10,10 @@ var require_keyMapping = __commonJS({
       backgroundColor: "bc",
       borderRadius: "br",
       color: "c",
-      desktopPosition: "dp",
+      positions: "p",
+      "positions.desktop": "d",
+      "positions.desktop.height": "h",
+      "positions.desktop.width": "w",
       fileId: "fId",
       fontWeight: "fw",
       icon: "i",
@@ -21,7 +24,7 @@ var require_keyMapping = __commonJS({
       title: "t"
     };
     module2.exports = mapping;
-    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
+    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key.split(".").pop()]));
   }
 });
 
@@ -109,32 +112,40 @@ var require_compress = __commonJS({
     var keyMapping = require_keyMapping();
     var valueMapping = require_valueMapping();
     var defaultValues = require_defaultValues();
-    module2.exports = (_primitive) => {
-      const primitive = JSON.parse(JSON.stringify(_primitive));
-      const { settings, type } = primitive;
-      Object.entries(settings).forEach(([_key, _value]) => {
+    var compressMutateObject = (object, type, keyPath = "") => {
+      Object.entries(object).forEach(([_key, _value]) => {
         if (typeof _value === "undefined" || _value?.length === 0) {
-          delete settings[_key];
+          delete object[_key];
           return;
         }
-        if (defaultValues[type][_key] === _value) {
-          delete settings[_key];
-          return;
+        if (!keyPath.length) {
+          if (defaultValues[type][_key] === _value) {
+            delete object[_key];
+            return;
+          }
         }
         let value = valueMapping[_key] ? valueMapping[_key][_value] : _value;
         if (typeof value === "undefined") {
           throw new Error(`Unknown ${_key} ${_value}`);
         }
-        settings[_key] = value;
+        object[_key] = value;
         if (_key === "title") {
           value = value.replace(/[\n]+$/, "");
         }
-        const key = keyMapping[_key];
+        const key = keyPath === "" ? keyMapping[_key] : keyMapping[`${keyPath}.${_key}`];
         if (key) {
-          settings[key] = value;
-          delete settings[_key];
+          object[key] = value;
+          delete object[_key];
+        }
+        if (typeof _value === "object") {
+          compressMutateObject(value, type, `${keyPath}.${_key}`.replace(/^\./, ""));
         }
       });
+    };
+    module2.exports = (_primitive) => {
+      const primitive = JSON.parse(JSON.stringify(_primitive));
+      const { settings, type } = primitive;
+      compressMutateObject(settings, type);
       return primitive;
     };
   }
@@ -146,15 +157,23 @@ var require_decompress = __commonJS({
     var keyMapping = require_keyMapping();
     var valueMapping = require_valueMapping();
     var defaultValues = require_defaultValues();
-    module2.exports = (_primitive) => {
-      const primitive = JSON.parse(JSON.stringify(_primitive));
-      const { settings: compressedSettings, type } = primitive;
-      const settings = {};
-      Object.entries(compressedSettings).forEach(([_key, _value]) => {
+    var decompressMutateObject = (object, keyPath = "") => {
+      Object.entries(object).forEach(([_key, _value]) => {
         const key = keyMapping.reverse[_key] || _key;
         const value = valueMapping.reverse[_key]?.[_value] || _value;
-        settings[key] = _value;
+        object[key] = _value;
+        if (key !== _key) {
+          delete object[_key];
+        }
+        if (typeof value === "object") {
+          decompressMutateObject(value, `${keyPath}.${_key}`.replace(/^\./, ""));
+        }
       });
+    };
+    module2.exports = (_primitive) => {
+      const primitive = JSON.parse(JSON.stringify(_primitive));
+      const { settings, type } = primitive;
+      decompressMutateObject(settings);
       const defaults = defaultValues[type] || {};
       primitive.settings = { ...defaults, ...settings };
       return primitive;

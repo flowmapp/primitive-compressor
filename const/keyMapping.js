@@ -2,7 +2,10 @@ const mapping = {
   backgroundColor: 'bc',
   borderRadius: 'br',
   color: 'c',
-  desktopPosition: 'dp',
+  positions: 'p',
+  'positions.desktop': 'd',
+  'positions.desktop.height': 'h',
+  'positions.desktop.width': 'w',
   fileId: 'fId',
   fontWeight: 'fw',
   icon: 'i',
@@ -15,4 +18,4 @@ const mapping = {
 
 module.exports = mapping
 
-module.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]))
+module.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key.split('.').pop()]))

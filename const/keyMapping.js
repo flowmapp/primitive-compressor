@@ -2,12 +2,14 @@ const mapping = {
   backgroundColor: 'bc',
   borderRadius: 'br',
   color: 'c',
+  desktopPosition: 'dp',
   fileId: 'fId',
   fontWeight: 'fw',
   icon: 'i',
   placeholder: 'ph',
   sitemapPageId: 'spId',
   size: 's',
+  state: 'st',
   title: 't',
 }
 

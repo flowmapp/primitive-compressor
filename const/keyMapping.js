@@ -14,6 +14,7 @@ const mapping = {
   size: 's',
   state: 'st',
   title: 't',
+  textAlign: 'ta',
 }
 
 module.exports = mapping

@@ -21,7 +21,8 @@ var require_keyMapping = __commonJS({
       sitemapPageId: "spId",
       size: "s",
       state: "st",
-      title: "t"
+      title: "t",
+      textAlign: "ta"
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key.split(".").pop()]));
@@ -80,6 +81,28 @@ var require_size = __commonJS({
   }
 });
 
+// const/valueMapping/state.js
+var require_state = __commonJS({
+  "const/valueMapping/state.js"(exports2, module2) {
+    module2.exports = {
+      normal: "n"
+    };
+  }
+});
+
+// const/valueMapping/textAlign.js
+var require_textAlign = __commonJS({
+  "const/valueMapping/textAlign.js"(exports2, module2) {
+    var mapping = {
+      "left": 0,
+      "center": 1,
+      "right": 2
+    };
+    module2.exports = mapping;
+    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
+  }
+});
+
 // const/valueMapping/index.js
 var require_valueMapping = __commonJS({
   "const/valueMapping/index.js"(exports2, module2) {
@@ -87,7 +110,9 @@ var require_valueMapping = __commonJS({
       color: require_color(),
       fontWeight: require_fontWeight(),
       icon: require_icon(),
-      size: require_size()
+      size: require_size(),
+      state: require_state(),
+      textAlign: require_textAlign()
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
@@ -99,7 +124,7 @@ var require_defaultValues = __commonJS({
   "const/defaultValues.js"(exports2, module2) {
     module2.exports = {
       button: { backgroundColor: "black", borderRadius: 0, state: "normal", icon: null },
-      text: { size: "m", fontWeight: 500, color: "#000" },
+      text: { size: "m", fontWeight: 500, color: "#000", textAlign: "left" },
       image: { opacity: 1 },
       input: { placeholder: "Search" }
     };

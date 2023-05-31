@@ -3,6 +3,8 @@ const mapping = {
   fontWeight: require('./fontWeight'),
   icon: require('./icon'),
   size: require('./size'),
+  state: require('./state'),
+  textAlign: require('./textAlign'),
 }
 
 module.exports = mapping

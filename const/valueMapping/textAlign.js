@@ -1,7 +1,7 @@
 const mapping = {
-  'left': 0,
-  'center': 1,
-  'right': 2,
+  left: 0,
+  center: 1,
+  right: 2,
 }
 
 module.exports = mapping

@@ -94,9 +94,9 @@ var require_state = __commonJS({
 var require_textAlign = __commonJS({
   "const/valueMapping/textAlign.js"(exports2, module2) {
     var mapping = {
-      "left": 0,
-      "center": 1,
-      "right": 2
+      left: 0,
+      center: 1,
+      right: 2
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
@@ -124,7 +124,7 @@ var require_defaultValues = __commonJS({
   "const/defaultValues.js"(exports2, module2) {
     module2.exports = {
       button: { backgroundColor: "black", borderRadius: 0, state: "normal", icon: null },
-      text: { size: "m", fontWeight: 500, color: "#000", textAlign: "left" },
+      text: { size: "m", fontWeight: 500, color: "#1f1f1f", textAlign: "left" },
       image: { opacity: 1 },
       input: { placeholder: "Search" }
     };

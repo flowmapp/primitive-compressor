@@ -8,7 +8,7 @@
   "scripts": {
     "build": "yarn build:node && yarn build:web",
     "build:node": "esbuild --bundle index.js --outfile=dist/node.js --platform=node",
-    "build:web": "esbuild --bundle index.js --outfile=dist/web.js --minify --sourcemap"
+    "build:web": "esbuild --bundle index.js --outfile=dist/web.js --minify --sourcemap --format=esm"
   },
   "devDependencies": {
     "esbuild": "^0.17.19",

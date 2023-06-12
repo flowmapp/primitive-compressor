@@ -5,6 +5,7 @@ const mapping = {
   size: require('./size'),
   state: require('./state'),
   textAlign: require('./textAlign'),
+  textDecoration: require('./textDecoration'),
 }
 
 module.exports = mapping

@@ -107,6 +107,17 @@ var require_textAlign = __commonJS({
   }
 });
 
+// const/valueMapping/textDecoration.js
+var require_textDecoration = __commonJS({
+  "const/valueMapping/textDecoration.js"(exports2, module2) {
+    var mapping = {
+      underline: 0
+    };
+    module2.exports = mapping;
+    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
+  }
+});
+
 // const/valueMapping/index.js
 var require_valueMapping = __commonJS({
   "const/valueMapping/index.js"(exports2, module2) {
@@ -116,7 +127,8 @@ var require_valueMapping = __commonJS({
       icon: require_icon(),
       size: require_size(),
       state: require_state(),
-      textAlign: require_textAlign()
+      textAlign: require_textAlign(),
+      textDecoration: require_textDecoration()
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));

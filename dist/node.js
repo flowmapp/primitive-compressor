@@ -148,12 +148,12 @@ var require_compress = __commonJS({
           return;
         }
         if (!keyPath.length) {
-          if (defaultValues[type][_key] === _value) {
+          if (defaultValues[type]?.[_key] === _value) {
             delete object[_key];
             return;
           }
         }
-        let value = valueMapping[_key] ? valueMapping[_key][_value] : _value;
+        let value = valueMapping[_key]?.[_value] || _value;
         if (typeof value === "undefined") {
           throw new Error(`Unknown ${_key} ${_value}`);
         }

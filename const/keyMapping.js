@@ -19,6 +19,7 @@ const mapping = {
   state: 'st',
   title: 't',
   textAlign: 'ta',
+  textDecoration: 'td',
 }
 
 module.exports = mapping

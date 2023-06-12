@@ -26,7 +26,8 @@ var require_keyMapping = __commonJS({
       size: "s",
       state: "st",
       title: "t",
-      textAlign: "ta"
+      textAlign: "ta",
+      textDecoration: "td"
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key.split(".").pop()]));

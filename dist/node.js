@@ -189,8 +189,8 @@ var require_decompress = __commonJS({
     var decompressMutateObject = (object, keyPath = "") => {
       Object.entries(object).forEach(([_key, _value]) => {
         const key = keyMapping.reverse[_key] || _key;
-        const value = valueMapping.reverse[_key]?.[_value] || _value;
-        object[key] = _value;
+        const value = valueMapping[key]?.reverse?.[_value] || _value;
+        object[key] = value;
         if (key !== _key) {
           delete object[_key];
         }

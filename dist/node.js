@@ -22,6 +22,7 @@ var require_keyMapping = __commonJS({
       fontWeight: "fw",
       icon: "i",
       placeholder: "ph",
+      opacity: "o",
       sitemapPageId: "spId",
       size: "s",
       state: "st",

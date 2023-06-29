@@ -14,6 +14,7 @@ const mapping = {
   fontWeight: 'fw',
   icon: 'i',
   placeholder: 'ph',
+  opacity: 'o',
   sitemapPageId: 'spId',
   size: 's',
   state: 'st',

@@ -16,10 +16,7 @@ const compressMutateObject = (object, type, keyPath = '') => {
       }
     }
 
-    let value = valueMapping[_key]?.[_value] || _value
-    if (_key === 'textDecoration') {
-      console.warn(valueMapping[_key]?.[_value], _value)
-    }
+    let value = valueMapping[_key]?.direct?.[_value] || _value
     object[_key] = value
     if (_key === 'title') {
       value = value.replace(/[\n]+$/, '')

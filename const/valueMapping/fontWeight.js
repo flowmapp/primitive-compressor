@@ -1,12 +1,6 @@
-const reverse = require('../../utils/reverse')
-
-const mapping = {
-  500: 5,
-  600: 6,
-  700: 7,
-  800: 8,
-}
-
-module.exports = mapping
-
-module.exports.reverse = reverse(mapping)
+module.exports = require('../../utils/makeMapping')([
+  500, //
+  600,
+  700,
+  800,
+])

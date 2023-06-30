@@ -1,8 +1,11 @@
+const reverse = require('../../utils/reverse')
+
 const mapping = {
-  primary: 0,
-  surfaceVariant: 1,
+  primary: 'p',
+  surfaceVariant: 's',
+  '#999': 9,
 }
 
 module.exports = mapping
 
-module.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]))
+module.exports.reverse = reverse(mapping)

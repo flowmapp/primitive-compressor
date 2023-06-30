@@ -17,8 +17,8 @@ const compressMutateObject = (object, type, keyPath = '') => {
     }
 
     let value = valueMapping[_key]?.[_value] || _value
-    if (typeof value === 'undefined') {
-      throw new Error(`Unknown ${_key} ${_value}`)
+    if (_key === 'textDecoration') {
+      console.warn(valueMapping[_key]?.[_value], _value)
     }
     object[_key] = value
     if (_key === 'title') {

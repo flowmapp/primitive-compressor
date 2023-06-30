@@ -1,9 +1,11 @@
+const reverse = require('../../utils/reverse')
+
 const mapping = {
-  left: 0,
-  center: 1,
-  right: 2,
+  left: 1,
+  center: 2,
+  right: 3,
 }
 
 module.exports = mapping
 
-module.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]))
+module.exports.reverse = reverse(mapping)

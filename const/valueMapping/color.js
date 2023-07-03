@@ -1,5 +1,4 @@
 module.exports = require('../../utils/makeMapping')([
-  'primary', //
-  'surfaceVariant',
+  '#1f1f1f', //
   '#999',
 ])

@@ -17,7 +17,6 @@ const mapping = {
   opacity: 'o',
   sitemapPageId: 'spId',
   size: 's',
-  state: 'st',
   title: 't',
   textAlign: 'ta',
   textDecoration: 'td',

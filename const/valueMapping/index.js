@@ -1,9 +1,9 @@
 const mapping = {
+  backgroundColor: require('./backgroundColor'),
   color: require('./color'),
   fontWeight: require('./fontWeight'),
   icon: require('./icon'),
   size: require('./size'),
-  state: require('./state'),
   textAlign: require('./textAlign'),
   textDecoration: require('./textDecoration'),
 }

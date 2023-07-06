@@ -25,7 +25,6 @@ var require_keyMapping = __commonJS({
       opacity: "o",
       sitemapPageId: "spId",
       size: "s",
-      state: "st",
       title: "t",
       textAlign: "ta",
       textDecoration: "td"
@@ -46,7 +45,7 @@ var require_makeDirectMapping = __commonJS({
 var require_makeReverseMapping = __commonJS({
   "utils/makeReverseMapping.js"(exports2, module2) {
     var makeDirectMapping = require_makeDirectMapping();
-    module2.exports = (array) => Object.fromEntries(Object.entries(makeDirectMapping(array)).map(([key, value]) => [value, key]));
+    module2.exports = (array) => Object.fromEntries(array.map((value, index) => [index + 1, value]));
   }
 });
 
@@ -62,13 +61,23 @@ var require_makeMapping = __commonJS({
   }
 });
 
+// const/valueMapping/backgroundColor.js
+var require_backgroundColor = __commonJS({
+  "const/valueMapping/backgroundColor.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "black",
+      //
+      "white"
+    ]);
+  }
+});
+
 // const/valueMapping/color.js
 var require_color = __commonJS({
   "const/valueMapping/color.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
-      "primary",
+      "#1f1f1f",
       //
-      "surfaceVariant",
       "#999"
     ]);
   }
@@ -80,9 +89,7 @@ var require_fontWeight = __commonJS({
     module2.exports = require_makeMapping()([
       500,
       //
-      600,
-      700,
-      800
+      700
     ]);
   }
 });
@@ -1992,16 +1999,6 @@ var require_size = __commonJS({
   }
 });
 
-// const/valueMapping/state.js
-var require_state = __commonJS({
-  "const/valueMapping/state.js"(exports2, module2) {
-    module2.exports = require_makeMapping()([
-      "normal"
-      //
-    ]);
-  }
-});
-
 // const/valueMapping/textAlign.js
 var require_textAlign = __commonJS({
   "const/valueMapping/textAlign.js"(exports2, module2) {
@@ -2019,6 +2016,7 @@ var require_textDecoration = __commonJS({
   "const/valueMapping/textDecoration.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "underline"
+      //
     ]);
   }
 });
@@ -2027,11 +2025,11 @@ var require_textDecoration = __commonJS({
 var require_valueMapping = __commonJS({
   "const/valueMapping/index.js"(exports2, module2) {
     var mapping = {
+      backgroundColor: require_backgroundColor(),
       color: require_color(),
       fontWeight: require_fontWeight(),
       icon: require_icon(),
       size: require_size(),
-      state: require_state(),
       textAlign: require_textAlign(),
       textDecoration: require_textDecoration()
     };
@@ -2044,10 +2042,9 @@ var require_valueMapping = __commonJS({
 var require_defaultValues = __commonJS({
   "const/defaultValues.js"(exports2, module2) {
     module2.exports = {
-      button: { backgroundColor: "black", borderRadius: 0, state: "normal", icon: null },
-      text: { size: "m", fontWeight: 500, color: "#1f1f1f", textAlign: "left" },
+      button: { backgroundColor: "black", borderRadius: 0, icon: null },
       image: { opacity: 1 },
-      input: { placeholder: "Search" }
+      text: { size: "m", fontWeight: 500, color: "#1f1f1f", textAlign: "left" }
     };
   }
 });

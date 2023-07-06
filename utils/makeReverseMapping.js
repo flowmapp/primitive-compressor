@@ -1,4 +1,3 @@
 const makeDirectMapping = require('./makeDirectMapping')
 
-module.exports = (array) =>
-  Object.fromEntries(Object.entries(makeDirectMapping(array)).map(([key, value]) => [value, key]))
+module.exports = (array) => Object.fromEntries(array.map((value, index) => [index + 1, value]))

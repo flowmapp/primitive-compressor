@@ -2057,7 +2057,7 @@ var require_compress = __commonJS({
     var defaultValues = require_defaultValues();
     var compressMutateObject = (object, type, keyPath = "") => {
       Object.entries(object).forEach(([_key, _value]) => {
-        if (typeof _value === "undefined" || _value?.length === 0) {
+        if (typeof _value === "undefined" || _value === null || _value?.length === 0) {
           delete object[_key];
           return;
         }

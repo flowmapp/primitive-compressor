@@ -37,9 +37,9 @@ const compressMutateObject = (object, type, keyPath = '') => {
 module.exports = (_primitive) => {
   const primitive = JSON.parse(JSON.stringify(_primitive))
 
-  const { settings, type } = primitive
+  const { params, type } = primitive
 
-  compressMutateObject(settings, type)
+  compressMutateObject(params, type)
 
   return primitive
 }

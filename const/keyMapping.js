@@ -10,6 +10,7 @@ const mapping = {
   'positions.desktop.startX': 'sx',
   'positions.desktop.startY': 'xy',
   'positions.desktop.width': 'w',
+  'positions.desktop.isWidthFixed': 'wf',
   fileId: 'fId',
   fontWeight: 'fw',
   icon: 'i',

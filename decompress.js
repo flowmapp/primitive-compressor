@@ -19,13 +19,13 @@ const decompressMutateObject = (object, keyPath = '') => {
 module.exports = (_primitive) => {
   const primitive = JSON.parse(JSON.stringify(_primitive))
 
-  const { settings, type } = primitive
+  const { params, type } = primitive
 
-  decompressMutateObject(settings)
+  decompressMutateObject(params)
 
   const defaults = defaultValues[type] || {}
 
-  primitive.settings = { ...defaults, ...settings }
+  primitive.params = { ...defaults, ...params }
 
   return primitive
 }

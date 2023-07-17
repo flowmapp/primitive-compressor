@@ -18,6 +18,7 @@ var require_keyMapping = __commonJS({
       "positions.desktop.startX": "sx",
       "positions.desktop.startY": "xy",
       "positions.desktop.width": "w",
+      "positions.desktop.isWidthFixed": "wf",
       fileId: "fId",
       fontWeight: "fw",
       icon: "i",
@@ -2084,8 +2085,12 @@ var require_compress = __commonJS({
     };
     module2.exports = (_primitive) => {
       const primitive = JSON.parse(JSON.stringify(_primitive));
-      const { settings, type } = primitive;
-      compressMutateObject(settings, type);
+      const { params, type } = primitive;
+      try {
+        compressMutateObject(params, type);
+      } catch (e) {
+        console.warn(e);
+      }
       return primitive;
     };
   }
@@ -2112,10 +2117,10 @@ var require_decompress = __commonJS({
     };
     module2.exports = (_primitive) => {
       const primitive = JSON.parse(JSON.stringify(_primitive));
-      const { settings, type } = primitive;
-      decompressMutateObject(settings);
+      const { params, type } = primitive;
+      decompressMutateObject(params);
       const defaults = defaultValues[type] || {};
-      primitive.settings = { ...defaults, ...settings };
+      primitive.params = { ...defaults, ...params };
       return primitive;
     };
   }

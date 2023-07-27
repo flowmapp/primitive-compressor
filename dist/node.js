@@ -19,9 +19,9 @@ var require_keyMapping = __commonJS({
       "positions.desktop.startY": "xy",
       "positions.desktop.width": "w",
       "positions.desktop.isWidthFixed": "wf",
-      fileId: "fId",
       fontWeight: "fw",
       icon: "i",
+      isDisabled: "d",
       placeholder: "ph",
       opacity: "o",
       sitemapPageId: "spId",
@@ -2043,7 +2043,7 @@ var require_valueMapping = __commonJS({
 var require_defaultValues = __commonJS({
   "const/defaultValues.js"(exports2, module2) {
     module2.exports = {
-      button: { backgroundColor: "black", borderRadius: 0, icon: null },
+      button: { backgroundColor: "black", borderRadius: 0, icon: null, isDisabled: 0 },
       image: { opacity: 1 },
       text: { size: "m", fontWeight: 500, color: "#1f1f1f", textAlign: "left" }
     };
@@ -2086,11 +2086,7 @@ var require_compress = __commonJS({
     module2.exports = (_primitive) => {
       const primitive = JSON.parse(JSON.stringify(_primitive));
       const { params, type } = primitive;
-      try {
-        compressMutateObject(params, type);
-      } catch (e) {
-        console.warn(e);
-      }
+      compressMutateObject(params, type);
       return primitive;
     };
   }

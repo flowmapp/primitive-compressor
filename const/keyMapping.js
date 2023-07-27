@@ -13,6 +13,7 @@ const mapping = {
   'positions.desktop.isWidthFixed': 'wf',
   fontWeight: 'fw',
   icon: 'i',
+  isDisabled: 'd',
   placeholder: 'ph',
   opacity: 'o',
   sitemapPageId: 'spId',

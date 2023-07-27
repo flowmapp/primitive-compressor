@@ -21,7 +21,7 @@ var require_keyMapping = __commonJS({
       "positions.desktop.isWidthFixed": "wf",
       fontWeight: "fw",
       icon: "i",
-      isDisabled: "d",
+      isDisabled: "di",
       placeholder: "ph",
       opacity: "o",
       sitemapPageId: "spId",

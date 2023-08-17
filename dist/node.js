@@ -79,7 +79,8 @@ var require_color = __commonJS({
     module2.exports = require_makeMapping()([
       "#1f1f1f",
       //
-      "#999"
+      "#999",
+      "#e0e0e0"
     ]);
   }
 });

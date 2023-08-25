@@ -10,7 +10,7 @@ module.exports = (entityType, _entity) => {
 
   const defaults = defaultValuesByEntity[entityType][type] || {}
 
-  primitive.params = { ...defaults, ...params }
+  entity.params = { ...defaults, ...params }
 
   return entity
 }

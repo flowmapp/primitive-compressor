@@ -1,6 +1,5 @@
 const keyMappingByEntity = require('../const/keyMappingByEntity')
 const valueMappingByEntity = require('../const/valueMappingByEntity')
-const defaultValuesByEntity = require('../const/defaultValuesByEntity')
 
 const decompressMutateObject = (object, entity, type, keyPath = '') => {
   if (object === null) {
@@ -9,12 +8,6 @@ const decompressMutateObject = (object, entity, type, keyPath = '') => {
 
   const keyMapping = keyMappingByEntity[entity]
   const valueMapping = valueMappingByEntity[entity]
-  const defaultValues = defaultValuesByEntity[entity]
-
-  const defaults = defaultValues[type] || {}
-  for (const key in defaults) {
-    object[key] = object[key] || defaults[key]
-  }
 
   Object.entries(object).forEach(([_key, _value]) => {
     const key = keyMapping.reverse[_key] || _key

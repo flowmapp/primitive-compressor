@@ -28,8 +28,7 @@ var require_keyMapping = __commonJS({
       size: "s",
       title: "t",
       textAlign: "ta",
-      textDecoration: "td",
-      width: "w"
+      textDecoration: "td"
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(

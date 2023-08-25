@@ -21,7 +21,6 @@ const mapping = {
   title: 't',
   textAlign: 'ta',
   textDecoration: 'td',
-  width: 'w',
 }
 
 module.exports = mapping

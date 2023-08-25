@@ -1,8 +1,10 @@
+const common = require('../../common/valueMapping')
+
 const mapping = {
+  ...common,
   backgroundColor: require('./backgroundColor'),
   color: require('./color'),
   fontWeight: require('./fontWeight'),
-  icon: require('./icon'),
   size: require('./size'),
   textAlign: require('./textAlign'),
   textDecoration: require('./textDecoration'),

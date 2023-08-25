@@ -10,28 +10,58 @@ var require_keyMapping = __commonJS({
       backgroundColor: "bc",
       borderRadius: "br",
       color: "c",
+      fontWeight: "fw",
+      icon: "i",
+      isDisabled: "di",
+      opacity: "o",
+      placeholder: "ph",
       positions: "p",
       "positions.desktop": "d",
       "positions.desktop.endX": "ex",
       "positions.desktop.endY": "ey",
       "positions.desktop.height": "h",
+      "positions.desktop.isWidthFixed": "wf",
       "positions.desktop.startX": "sx",
       "positions.desktop.startY": "xy",
       "positions.desktop.width": "w",
-      "positions.desktop.isWidthFixed": "wf",
-      fontWeight: "fw",
-      icon: "i",
-      isDisabled: "di",
-      placeholder: "ph",
-      opacity: "o",
       sitemapPageId: "spId",
       size: "s",
       title: "t",
       textAlign: "ta",
-      textDecoration: "td"
+      textDecoration: "td",
+      width: "w"
     };
     module2.exports = mapping;
-    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key.split(".").pop()]));
+    module2.exports.reverse = Object.fromEntries(
+      Object.entries(mapping).map(([key, value]) => [value, key.split(".").pop()])
+    );
+  }
+});
+
+// const/userflowBlock/keyMapping.js
+var require_keyMapping2 = __commonJS({
+  "const/userflowBlock/keyMapping.js"(exports2, module2) {
+    var mapping = {
+      align: "a",
+      customSize: "cs",
+      backgroundColor: "bc",
+      borderColor: "boC",
+      dashArray: "da",
+      figureType: "ft",
+      icon: "i",
+      imageHeight: "ih",
+      imageWidth: "iw",
+      opacity: "o",
+      sitemapPageId: "spId",
+      textColor: "tc",
+      textSize: "ts",
+      title: "t",
+      v3: "v3"
+    };
+    module2.exports = mapping;
+    module2.exports.reverse = Object.fromEntries(
+      Object.entries(mapping).map(([key, value]) => [value, key.split(".").pop()])
+    );
   }
 });
 
@@ -39,7 +69,8 @@ var require_keyMapping = __commonJS({
 var require_keyMappingByEntity = __commonJS({
   "const/keyMappingByEntity.js"(exports2, module2) {
     module2.exports = {
-      wireframePrimitive: require_keyMapping()
+      wireframePrimitive: require_keyMapping(),
+      userflowBlock: require_keyMapping2()
     };
   }
 });
@@ -71,43 +102,9 @@ var require_makeMapping = __commonJS({
   }
 });
 
-// const/wireframePrimitive/valueMapping/backgroundColor.js
-var require_backgroundColor = __commonJS({
-  "const/wireframePrimitive/valueMapping/backgroundColor.js"(exports2, module2) {
-    module2.exports = require_makeMapping()([
-      "black",
-      //
-      "white"
-    ]);
-  }
-});
-
-// const/wireframePrimitive/valueMapping/color.js
-var require_color = __commonJS({
-  "const/wireframePrimitive/valueMapping/color.js"(exports2, module2) {
-    module2.exports = require_makeMapping()([
-      "#1f1f1f",
-      //
-      "#999",
-      "#e0e0e0"
-    ]);
-  }
-});
-
-// const/wireframePrimitive/valueMapping/fontWeight.js
-var require_fontWeight = __commonJS({
-  "const/wireframePrimitive/valueMapping/fontWeight.js"(exports2, module2) {
-    module2.exports = require_makeMapping()([
-      500,
-      //
-      700
-    ]);
-  }
-});
-
-// const/wireframePrimitive/valueMapping/icon.js
+// const/common/valueMapping/icon.js
 var require_icon = __commonJS({
-  "const/wireframePrimitive/valueMapping/icon.js"(exports2, module2) {
+  "const/common/valueMapping/icon.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "Auto/alfa_romeo",
       "Auto/audi",
@@ -3857,6 +3854,71 @@ var require_icon = __commonJS({
   }
 });
 
+// const/common/valueMapping/opacity.js
+var require_opacity = __commonJS({
+  "const/common/valueMapping/opacity.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      10,
+      //
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100
+    ]);
+  }
+});
+
+// const/common/valueMapping/index.js
+var require_valueMapping = __commonJS({
+  "const/common/valueMapping/index.js"(exports2, module2) {
+    var mapping = {
+      icon: require_icon(),
+      opacity: require_opacity()
+    };
+    module2.exports = mapping;
+    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
+  }
+});
+
+// const/wireframePrimitive/valueMapping/backgroundColor.js
+var require_backgroundColor = __commonJS({
+  "const/wireframePrimitive/valueMapping/backgroundColor.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "black",
+      //
+      "white"
+    ]);
+  }
+});
+
+// const/wireframePrimitive/valueMapping/color.js
+var require_color = __commonJS({
+  "const/wireframePrimitive/valueMapping/color.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "#1f1f1f",
+      //
+      "#999",
+      "#e0e0e0"
+    ]);
+  }
+});
+
+// const/wireframePrimitive/valueMapping/fontWeight.js
+var require_fontWeight = __commonJS({
+  "const/wireframePrimitive/valueMapping/fontWeight.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      500,
+      //
+      700
+    ]);
+  }
+});
+
 // const/wireframePrimitive/valueMapping/size.js
 var require_size = __commonJS({
   "const/wireframePrimitive/valueMapping/size.js"(exports2, module2) {
@@ -3894,16 +3956,121 @@ var require_textDecoration = __commonJS({
 });
 
 // const/wireframePrimitive/valueMapping/index.js
-var require_valueMapping = __commonJS({
+var require_valueMapping2 = __commonJS({
   "const/wireframePrimitive/valueMapping/index.js"(exports2, module2) {
+    var common = require_valueMapping();
     var mapping = {
+      ...common,
       backgroundColor: require_backgroundColor(),
       color: require_color(),
       fontWeight: require_fontWeight(),
-      icon: require_icon(),
       size: require_size(),
       textAlign: require_textAlign(),
       textDecoration: require_textDecoration()
+    };
+    module2.exports = mapping;
+    module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
+  }
+});
+
+// const/userflowBlock/valueMapping/align.js
+var require_align = __commonJS({
+  "const/userflowBlock/valueMapping/align.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "left",
+      //
+      "center",
+      "right"
+    ]);
+  }
+});
+
+// const/userflowBlock/valueMapping/borderColor.js
+var require_borderColor = __commonJS({
+  "const/userflowBlock/valueMapping/borderColor.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "#1f1f1f",
+      "#6696ff",
+      "#c2c2c2",
+      "#36eb8d",
+      "#ff7070",
+      "#ffa334",
+      "#f5cc00",
+      "#3af3ff",
+      "#9b70ff",
+      "#ff99ff",
+      "#adadad"
+    ]);
+  }
+});
+
+// const/userflowBlock/valueMapping/figureType.js
+var require_figureType = __commonJS({
+  "const/userflowBlock/valueMapping/figureType.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "circle",
+      "displayShape",
+      "hexagon",
+      "oval",
+      "parallelogramLeft",
+      "parallelogramRight",
+      "rectangle",
+      "rectangleOval",
+      "rhombicRectangle",
+      "rhombus",
+      "trapezium",
+      "trapeziumReverse",
+      "triangle",
+      "wavyBottomRectangle",
+      "wavyRectangle"
+    ]);
+  }
+});
+
+// const/userflowBlock/valueMapping/textColor.js
+var require_textColor = __commonJS({
+  "const/userflowBlock/valueMapping/textColor.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "#1f1f1f",
+      "#6696ff",
+      "#c2c2c2",
+      "#36eb8d",
+      "#ff7070",
+      "#ffa334",
+      "#f5cc00",
+      "#3af3ff",
+      "#9b70ff",
+      "#ff99ff",
+      "#adadad"
+    ]);
+  }
+});
+
+// const/userflowBlock/valueMapping/textSize.js
+var require_textSize = __commonJS({
+  "const/userflowBlock/valueMapping/textSize.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "xs",
+      //
+      "s",
+      "m",
+      "l",
+      "xl"
+    ]);
+  }
+});
+
+// const/userflowBlock/valueMapping/index.js
+var require_valueMapping3 = __commonJS({
+  "const/userflowBlock/valueMapping/index.js"(exports2, module2) {
+    var common = require_valueMapping();
+    var mapping = {
+      ...common,
+      align: require_align(),
+      borderColor: require_borderColor(),
+      figureType: require_figureType(),
+      textColor: require_textColor(),
+      textSize: require_textSize()
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key]));
@@ -3914,7 +4081,8 @@ var require_valueMapping = __commonJS({
 var require_valueMappingByEntity = __commonJS({
   "const/valueMappingByEntity.js"(exports2, module2) {
     module2.exports = {
-      wireframePrimitive: require_valueMapping()
+      wireframePrimitive: require_valueMapping2(),
+      userflowBlock: require_valueMapping3()
     };
   }
 });
@@ -3930,11 +4098,22 @@ var require_defaultValues = __commonJS({
   }
 });
 
+// const/userflowBlock/defaultValues.js
+var require_defaultValues2 = __commonJS({
+  "const/userflowBlock/defaultValues.js"(exports2, module2) {
+    module2.exports = {
+      image: { opacity: 100 },
+      rectangle: { backgroundColor: "#36eb8d", figureType: "rectangle" }
+    };
+  }
+});
+
 // const/defaultValuesByEntity.js
 var require_defaultValuesByEntity = __commonJS({
   "const/defaultValuesByEntity.js"(exports2, module2) {
     module2.exports = {
-      wireframePrimitive: require_defaultValues()
+      wireframePrimitive: require_defaultValues(),
+      userflowBlock: require_defaultValues2()
     };
   }
 });

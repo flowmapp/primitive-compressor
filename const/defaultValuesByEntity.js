@@ -1,3 +1,4 @@
 module.exports = {
-  wireframePrimitive: require('./wireframePrimitive/defaultValues')
+  wireframePrimitive: require('./wireframePrimitive/defaultValues'),
+  userflowBlock: require('./userflowBlock/defaultValues'),
 }

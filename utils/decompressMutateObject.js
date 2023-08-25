@@ -3,6 +3,10 @@ const valueMappingByEntity = require('../const/valueMappingByEntity')
 const defaultValuesByEntity = require('../const/defaultValuesByEntity')
 
 const decompressMutateObject = (object, entity, type, keyPath = '') => {
+  if (object === null) {
+    return
+  }
+
   const keyMapping = keyMappingByEntity[entity]
   const valueMapping = valueMappingByEntity[entity]
   const defaultValues = defaultValuesByEntity[entity]

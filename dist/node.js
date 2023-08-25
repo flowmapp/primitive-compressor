@@ -3945,10 +3945,10 @@ var require_compressMutateObject = __commonJS({
     var keyMappingByEntity = require_keyMappingByEntity();
     var valueMappingByEntity = require_valueMappingByEntity();
     var defaultValuesByEntity = require_defaultValuesByEntity();
-    var compressMutateObject = (object, entity2, type, keyPath = "") => {
-      const keyMapping = keyMappingByEntity[entity2];
-      const valueMapping = valueMappingByEntity[entity2];
-      const defaultValues = defaultValuesByEntity[entity2];
+    var compressMutateObject = (object, entity, type, keyPath = "") => {
+      const keyMapping = keyMappingByEntity[entity];
+      const valueMapping = valueMappingByEntity[entity];
+      const defaultValues = defaultValuesByEntity[entity];
       Object.entries(object).forEach(([_key, _value]) => {
         if (typeof _value === "undefined" || _value === null || _value?.length === 0) {
           delete object[_key];
@@ -3971,7 +3971,7 @@ var require_compressMutateObject = __commonJS({
           delete object[_key];
         }
         if (typeof _value === "object") {
-          compressMutateObject(value, entity2, type, `${keyPath}.${_key}`.replace(/^\./, ""));
+          compressMutateObject(value, entity, type, `${keyPath}.${_key}`.replace(/^\./, ""));
         }
       });
     };
@@ -3984,16 +3984,16 @@ var require_compress = __commonJS({
   "compress.js"(exports2, module2) {
     var compressMutateObject = require_compressMutateObject();
     module2.exports = (entityType, _entity) => {
-      const entity2 = JSON.parse(JSON.stringify(_entity));
-      const { params, type } = entity2;
+      const entity = JSON.parse(JSON.stringify(_entity));
+      const { params, type } = entity;
       compressMutateObject(params, entityType, type);
-      return entity2;
+      return entity;
     };
   }
 });
 
 // node.js
 module.exports = {
-  compressWireframePrimitive: (primitive) => require_compress()("wireframePrimitive", entity),
-  compressUserflowBlock: (primitive) => require_compress()("userflowBlock", entity)
+  compressWireframePrimitive: (wireframePrimitive) => require_compress()("wireframePrimitive", wireframePrimitive),
+  compressUserflowBlock: (userflowBlock) => require_compress()("userflowBlock", userflowBlock)
 };

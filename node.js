@@ -1,4 +1,4 @@
 module.exports = {
-  compressWireframePrimitive: primitive => require('./compress')('wireframePrimitive', entity),
-  compressUserflowBlock: primitive => require('./compress')('userflowBlock', entity),
+  compressWireframePrimitive: wireframePrimitive => require('./compress')('wireframePrimitive', wireframePrimitive),
+  compressUserflowBlock: userflowBlock => require('./compress')('userflowBlock', userflowBlock),
 }

@@ -3,9 +3,9 @@ var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 
-// const/keyMapping.js
+// const/wireframePrimitive/keyMapping.js
 var require_keyMapping = __commonJS({
-  "const/keyMapping.js"(exports2, module2) {
+  "const/wireframePrimitive/keyMapping.js"(exports2, module2) {
     var mapping = {
       backgroundColor: "bc",
       borderRadius: "br",
@@ -32,6 +32,15 @@ var require_keyMapping = __commonJS({
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(Object.entries(mapping).map(([key, value]) => [value, key.split(".").pop()]));
+  }
+});
+
+// const/keyMappingByEntity.js
+var require_keyMappingByEntity = __commonJS({
+  "const/keyMappingByEntity.js"(exports2, module2) {
+    module2.exports = {
+      wireframePrimitive: require_keyMapping()
+    };
   }
 });
 
@@ -62,9 +71,9 @@ var require_makeMapping = __commonJS({
   }
 });
 
-// const/valueMapping/backgroundColor.js
+// const/wireframePrimitive/valueMapping/backgroundColor.js
 var require_backgroundColor = __commonJS({
-  "const/valueMapping/backgroundColor.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/backgroundColor.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "black",
       //
@@ -73,9 +82,9 @@ var require_backgroundColor = __commonJS({
   }
 });
 
-// const/valueMapping/color.js
+// const/wireframePrimitive/valueMapping/color.js
 var require_color = __commonJS({
-  "const/valueMapping/color.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/color.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "#1f1f1f",
       //
@@ -85,9 +94,9 @@ var require_color = __commonJS({
   }
 });
 
-// const/valueMapping/fontWeight.js
+// const/wireframePrimitive/valueMapping/fontWeight.js
 var require_fontWeight = __commonJS({
-  "const/valueMapping/fontWeight.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/fontWeight.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       500,
       //
@@ -96,9 +105,9 @@ var require_fontWeight = __commonJS({
   }
 });
 
-// const/valueMapping/icon.js
+// const/wireframePrimitive/valueMapping/icon.js
 var require_icon = __commonJS({
-  "const/valueMapping/icon.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/icon.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "Auto/alfa_romeo",
       "Auto/audi",
@@ -3848,9 +3857,9 @@ var require_icon = __commonJS({
   }
 });
 
-// const/valueMapping/size.js
+// const/wireframePrimitive/valueMapping/size.js
 var require_size = __commonJS({
-  "const/valueMapping/size.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/size.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "xs",
       //
@@ -3862,9 +3871,9 @@ var require_size = __commonJS({
   }
 });
 
-// const/valueMapping/textAlign.js
+// const/wireframePrimitive/valueMapping/textAlign.js
 var require_textAlign = __commonJS({
-  "const/valueMapping/textAlign.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/textAlign.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "left",
       //
@@ -3874,9 +3883,9 @@ var require_textAlign = __commonJS({
   }
 });
 
-// const/valueMapping/textDecoration.js
+// const/wireframePrimitive/valueMapping/textDecoration.js
 var require_textDecoration = __commonJS({
-  "const/valueMapping/textDecoration.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/textDecoration.js"(exports2, module2) {
     module2.exports = require_makeMapping()([
       "underline"
       //
@@ -3884,9 +3893,9 @@ var require_textDecoration = __commonJS({
   }
 });
 
-// const/valueMapping/index.js
+// const/wireframePrimitive/valueMapping/index.js
 var require_valueMapping = __commonJS({
-  "const/valueMapping/index.js"(exports2, module2) {
+  "const/wireframePrimitive/valueMapping/index.js"(exports2, module2) {
     var mapping = {
       backgroundColor: require_backgroundColor(),
       color: require_color(),
@@ -3901,9 +3910,18 @@ var require_valueMapping = __commonJS({
   }
 });
 
-// const/defaultValues.js
+// const/valueMappingByEntity.js
+var require_valueMappingByEntity = __commonJS({
+  "const/valueMappingByEntity.js"(exports2, module2) {
+    module2.exports = {
+      wireframePrimitive: require_valueMapping()
+    };
+  }
+});
+
+// const/wireframePrimitive/defaultValues.js
 var require_defaultValues = __commonJS({
-  "const/defaultValues.js"(exports2, module2) {
+  "const/wireframePrimitive/defaultValues.js"(exports2, module2) {
     module2.exports = {
       button: { backgroundColor: "black", borderRadius: 0, icon: null, isDisabled: 0 },
       image: { opacity: 100 },
@@ -3912,13 +3930,25 @@ var require_defaultValues = __commonJS({
   }
 });
 
-// compress.js
-var require_compress = __commonJS({
-  "compress.js"(exports2, module2) {
-    var keyMapping = require_keyMapping();
-    var valueMapping = require_valueMapping();
-    var defaultValues = require_defaultValues();
-    var compressMutateObject = (object, type, keyPath = "") => {
+// const/defaultValuesByEntity.js
+var require_defaultValuesByEntity = __commonJS({
+  "const/defaultValuesByEntity.js"(exports2, module2) {
+    module2.exports = {
+      wireframePrimitive: require_defaultValues()
+    };
+  }
+});
+
+// utils/compressMutateObject.js
+var require_compressMutateObject = __commonJS({
+  "utils/compressMutateObject.js"(exports2, module2) {
+    var keyMappingByEntity = require_keyMappingByEntity();
+    var valueMappingByEntity = require_valueMappingByEntity();
+    var defaultValuesByEntity = require_defaultValuesByEntity();
+    var compressMutateObject = (object, entity2, type, keyPath = "") => {
+      const keyMapping = keyMappingByEntity[entity2];
+      const valueMapping = valueMappingByEntity[entity2];
+      const defaultValues = defaultValuesByEntity[entity2];
       Object.entries(object).forEach(([_key, _value]) => {
         if (typeof _value === "undefined" || _value === null || _value?.length === 0) {
           delete object[_key];
@@ -3941,51 +3971,29 @@ var require_compress = __commonJS({
           delete object[_key];
         }
         if (typeof _value === "object") {
-          compressMutateObject(value, type, `${keyPath}.${_key}`.replace(/^\./, ""));
+          compressMutateObject(value, entity2, type, `${keyPath}.${_key}`.replace(/^\./, ""));
         }
       });
     };
-    module2.exports = (_primitive) => {
-      const primitive = JSON.parse(JSON.stringify(_primitive));
-      const { params, type } = primitive;
-      compressMutateObject(params, type);
-      return primitive;
+    module2.exports = compressMutateObject;
+  }
+});
+
+// compress.js
+var require_compress = __commonJS({
+  "compress.js"(exports2, module2) {
+    var compressMutateObject = require_compressMutateObject();
+    module2.exports = (entityType, _entity) => {
+      const entity2 = JSON.parse(JSON.stringify(_entity));
+      const { params, type } = entity2;
+      compressMutateObject(params, entityType, type);
+      return entity2;
     };
   }
 });
 
-// decompress.js
-var require_decompress = __commonJS({
-  "decompress.js"(exports2, module2) {
-    var keyMapping = require_keyMapping();
-    var valueMapping = require_valueMapping();
-    var defaultValues = require_defaultValues();
-    var decompressMutateObject = (object, keyPath = "") => {
-      Object.entries(object).forEach(([_key, _value]) => {
-        const key = keyMapping.reverse[_key] || _key;
-        const value = valueMapping[key]?.reverse?.[_value] || _value;
-        object[key] = value;
-        if (key !== _key) {
-          delete object[_key];
-        }
-        if (typeof value === "object") {
-          decompressMutateObject(value, `${keyPath}.${_key}`.replace(/^\./, ""));
-        }
-      });
-    };
-    module2.exports = (_primitive) => {
-      const primitive = JSON.parse(JSON.stringify(_primitive));
-      const { params, type } = primitive;
-      decompressMutateObject(params);
-      const defaults = defaultValues[type] || {};
-      primitive.params = { ...defaults, ...params };
-      return primitive;
-    };
-  }
-});
-
-// index.js
+// node.js
 module.exports = {
-  compress: require_compress(),
-  decompress: require_decompress()
+  compressWireframePrimitive: (primitive) => require_compress()("wireframePrimitive", entity),
+  compressUserflowBlock: (primitive) => require_compress()("userflowBlock", entity)
 };

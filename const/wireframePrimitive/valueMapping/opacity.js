@@ -1,4 +1,4 @@
-module.exports = require('../../utils/makeMapping')([
+module.exports = require('../../../utils/makeMapping')([
   10, //
   20,
   30,

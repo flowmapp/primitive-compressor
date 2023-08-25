@@ -1,4 +1,4 @@
-module.exports = require('../../utils/makeMapping')([
+module.exports = require('../../../utils/makeMapping')([
   'Auto/alfa_romeo',
   'Auto/audi',
   'Auto/bmw',

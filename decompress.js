@@ -8,7 +8,7 @@ module.exports = (entityType, _entity) => {
 
   decompressMutateObject(params, entityType, type)
 
-  const defaults = defaultValues[entityType][type] || {}
+  const defaults = defaultValuesByEntity[entityType][type] || {}
 
   primitive.params = { ...defaults, ...params }
 

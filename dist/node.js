@@ -54,8 +54,7 @@ var require_keyMapping2 = __commonJS({
       sitemapPageId: "spId",
       textColor: "tc",
       textSize: "ts",
-      title: "t",
-      v3: "v3"
+      title: "t"
     };
     module2.exports = mapping;
     module2.exports.reverse = Object.fromEntries(

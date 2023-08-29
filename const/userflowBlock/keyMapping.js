@@ -13,7 +13,6 @@ const mapping = {
   textColor: 'tc',
   textSize: 'ts',
   title: 't',
-  v3: 'v3',
 }
 
 module.exports = mapping

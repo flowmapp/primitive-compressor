@@ -4004,6 +4004,25 @@ var require_align = __commonJS({
   }
 });
 
+// const/userflowBlock/valueMapping/backgroundColor.js
+var require_backgroundColor2 = __commonJS({
+  "const/userflowBlock/valueMapping/backgroundColor.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "#1f1f1f",
+      "#6696ff",
+      "#c2c2c2",
+      "#36eb8d",
+      "#ff7070",
+      "#ffa334",
+      "#f5cc00",
+      "#3af3ff",
+      "#9b70ff",
+      "#ff99ff",
+      "#adadad"
+    ]);
+  }
+});
+
 // const/userflowBlock/valueMapping/borderColor.js
 var require_borderColor = __commonJS({
   "const/userflowBlock/valueMapping/borderColor.js"(exports2, module2) {
@@ -4086,6 +4105,7 @@ var require_valueMapping3 = __commonJS({
     var mapping = {
       ...common,
       align: require_align(),
+      backgroundColor: require_backgroundColor2(),
       borderColor: require_borderColor(),
       figureType: require_figureType(),
       textColor: require_textColor(),

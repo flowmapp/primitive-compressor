@@ -3,6 +3,7 @@ const common = require('../../common/valueMapping')
 const mapping = {
   ...common,
   align: require('./align'),
+  backgroundColor: require('./backgroundColor'),
   borderColor: require('./borderColor'),
   figureType: require('./figureType'),
   textColor: require('./textColor'),

@@ -4169,8 +4169,52 @@ var require_compress = __commonJS({
   }
 });
 
+// utils/decompressMutateObject.js
+var require_decompressMutateObject = __commonJS({
+  "utils/decompressMutateObject.js"(exports2, module2) {
+    var keyMappingByEntity = require_keyMappingByEntity();
+    var valueMappingByEntity = require_valueMappingByEntity();
+    var decompressMutateObject = (object, entity, type, keyPath = "") => {
+      if (object === null) {
+        return;
+      }
+      const keyMapping = keyMappingByEntity[entity];
+      const valueMapping = valueMappingByEntity[entity];
+      Object.entries(object).forEach(([_key, _value]) => {
+        const key = keyMapping.reverse[_key] || _key;
+        const value = valueMapping[key]?.reverse?.[_value] || _value;
+        object[key] = value;
+        if (key !== _key) {
+          delete object[_key];
+        }
+        if (typeof value === "object") {
+          decompressMutateObject(value, entity, type, `${keyPath}.${_key}`.replace(/^\./, ""));
+        }
+      });
+    };
+    module2.exports = decompressMutateObject;
+  }
+});
+
+// decompress.js
+var require_decompress = __commonJS({
+  "decompress.js"(exports2, module2) {
+    var decompressMutateObject = require_decompressMutateObject();
+    var defaultValuesByEntity = require_defaultValuesByEntity();
+    module2.exports = (entityType, _entity) => {
+      const entity = JSON.parse(JSON.stringify(_entity));
+      const { params, type } = entity;
+      decompressMutateObject(params, entityType, type);
+      const defaults = defaultValuesByEntity[entityType][type] || {};
+      entity.params = { ...defaults, ...params };
+      return entity;
+    };
+  }
+});
+
 // node.js
 module.exports = {
   compressWireframePrimitive: (wireframePrimitive) => require_compress()("wireframePrimitive", wireframePrimitive),
-  compressUserflowBlock: (userflowBlock) => require_compress()("userflowBlock", userflowBlock)
+  compressUserflowBlock: (userflowBlock) => require_compress()("userflowBlock", userflowBlock),
+  decompressUserflowBlock: (userflowBlock) => require_decompress()("userflowBlock", userflowBlock)
 };

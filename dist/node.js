@@ -4256,6 +4256,7 @@ var require_decompress = __commonJS({
 // node.js
 module.exports = {
   compressWireframePrimitive: (wireframePrimitive) => require_compress()("wireframePrimitive", wireframePrimitive),
+  decompressWireframePrimitive: (wireframePrimitive) => require_decompress()("wireframePrimitive", wireframePrimitive),
   compressUserflowBlock: (userflowBlock) => require_compress()("userflowBlock", userflowBlock),
   decompressUserflowBlock: (userflowBlock) => require_decompress()("userflowBlock", userflowBlock)
 };

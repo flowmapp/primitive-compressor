@@ -2,6 +2,7 @@ const mapping = {
   backgroundColor: 'bc',
   borderRadius: 'br',
   color: 'c',
+  displayStyle: 'ds',
   fontWeight: 'fw',
   icon: 'i',
   isDisabled: 'di',

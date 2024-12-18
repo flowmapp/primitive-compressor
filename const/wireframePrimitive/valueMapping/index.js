@@ -4,6 +4,7 @@ const mapping = {
   ...common,
   backgroundColor: require('./backgroundColor'),
   color: require('./color'),
+  displayStyle: require('./displayStyle'),
   fontWeight: require('./fontWeight'),
   size: require('./size'),
   textAlign: require('./textAlign'),

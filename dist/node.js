@@ -10,6 +10,7 @@ var require_keyMapping = __commonJS({
       backgroundColor: "bc",
       borderRadius: "br",
       color: "c",
+      displayStyle: "ds",
       fontWeight: "fw",
       icon: "i",
       isDisabled: "di",
@@ -3927,6 +3928,20 @@ var require_color = __commonJS({
   }
 });
 
+// const/wireframePrimitive/valueMapping/displayStyle.js
+var require_displayStyle = __commonJS({
+  "const/wireframePrimitive/valueMapping/displayStyle.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "default",
+      //
+      "selected",
+      "indeterminate",
+      "disabled",
+      "disabledSelected"
+    ]);
+  }
+});
+
 // const/wireframePrimitive/valueMapping/fontWeight.js
 var require_fontWeight = __commonJS({
   "const/wireframePrimitive/valueMapping/fontWeight.js"(exports2, module2) {
@@ -3982,6 +3997,7 @@ var require_valueMapping2 = __commonJS({
       ...common,
       backgroundColor: require_backgroundColor(),
       color: require_color(),
+      displayStyle: require_displayStyle(),
       fontWeight: require_fontWeight(),
       size: require_size(),
       textAlign: require_textAlign(),

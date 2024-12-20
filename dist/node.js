@@ -10,7 +10,6 @@ var require_keyMapping = __commonJS({
       backgroundColor: "bc",
       borderRadius: "br",
       color: "c",
-      displayStyle: "ds",
       fontWeight: "fw",
       icon: "i",
       isDisabled: "di",
@@ -27,6 +26,7 @@ var require_keyMapping = __commonJS({
       "positions.desktop.width": "w",
       sitemapPageId: "spId",
       size: "s",
+      state: "st",
       title: "t",
       textAlign: "ta",
       textDecoration: "td"
@@ -3928,20 +3928,6 @@ var require_color = __commonJS({
   }
 });
 
-// const/wireframePrimitive/valueMapping/displayStyle.js
-var require_displayStyle = __commonJS({
-  "const/wireframePrimitive/valueMapping/displayStyle.js"(exports2, module2) {
-    module2.exports = require_makeMapping()([
-      "default",
-      //
-      "selected",
-      "indeterminate",
-      "disabled",
-      "disabledSelected"
-    ]);
-  }
-});
-
 // const/wireframePrimitive/valueMapping/fontWeight.js
 var require_fontWeight = __commonJS({
   "const/wireframePrimitive/valueMapping/fontWeight.js"(exports2, module2) {
@@ -3963,6 +3949,20 @@ var require_size = __commonJS({
       "m",
       "l",
       "xl"
+    ]);
+  }
+});
+
+// const/wireframePrimitive/valueMapping/state.js
+var require_state = __commonJS({
+  "const/wireframePrimitive/valueMapping/state.js"(exports2, module2) {
+    module2.exports = require_makeMapping()([
+      "default",
+      //
+      "selected",
+      "indeterminate",
+      "disabled",
+      "disabledSelected"
     ]);
   }
 });
@@ -3997,9 +3997,9 @@ var require_valueMapping2 = __commonJS({
       ...common,
       backgroundColor: require_backgroundColor(),
       color: require_color(),
-      displayStyle: require_displayStyle(),
       fontWeight: require_fontWeight(),
       size: require_size(),
+      state: require_state(),
       textAlign: require_textAlign(),
       textDecoration: require_textDecoration()
     };
